@@ -14,3 +14,12 @@ This is a basic Full-Stack project that uses Java as its backend language, using
 - This project was developed in Java 21, Maven, Spring Web 6.0.13 and Hibernate 6.2.13, so it is a pretty up-to-date project (as of Nov 13th, 2023).
 
 ## Installment
+
+- Download the "StudentManagementWeb.zip" and extract its contents into your IDE's project folder/your workspace.
+- Download and open the "StudentManagementWeb.sql", copy paste all code and run inside a valid connection to create the database and its tables.
+
+## TODOS/Fixes
+
+- The front-end interface isn't the best out there, it can take some improvements.
+- The back-end has a few functions that ultimately remained unused.
+- The tuition withdraw function when choosing courses for student is yet to be employed.
