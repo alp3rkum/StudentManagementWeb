@@ -22,4 +22,4 @@ This is a basic Full-Stack project that uses Java as its backend language, using
 
 - The front-end interface isn't the best out there, it can take some improvements.
 - The back-end has a few functions that ultimately remained unused.
-- The tuition withdraw function when choosing courses for student is yet to be employed. (DONE, not released yet)
+- The tuition withdraw function when choosing courses for student is yet to be employed. (DONE by 24.11.2023)
