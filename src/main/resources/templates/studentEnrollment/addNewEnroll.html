@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<th:block th:replace="partials/head :: head"></th:block>
+	<body>
+		<th:block th:replace="partials/header :: header"></th:block>
+		<p>In this page you can enroll a particular student to the courses he can take. Ctrl+Click to select multiple courses.</p>
+		<p th:text="${student._studentID}"></p>
+		<p th:text="${student._firstName}"></p>
+		<form method="POST" th:action="@{/studentEnroll/add}" th:object="${form}">
+			<input type="hidden" name="studentID" th:value="${student._studentID}" />
+			<table class="list-small list-birow">
+				<thead>
+					<th>Select Courses to Enroll</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<select name="__courseIDs" style="width: inherit; height: 360px;" multiple>
+								<optgroup label="Enrolled">
+							        <option th:each="course : ${courses}"
+							                th:value="${course._courseID}"
+							                th:text="${course._courseID + ' ' + course._courseName}"
+							                th:if="${enrollments.contains(course)}" selected="selected">
+							        </option>
+							    </optgroup>
+							    <optgroup label="Available">
+							        <option th:each="course : ${courses}"
+							                th:value="${course._courseID}"
+							                th:text="${course._courseID + ' ' + course._courseName}"
+							                th:unless="${enrollments.contains(course)}">
+							        </option>
+							    </optgroup>
+							</select>
+						</td>
+						<tr>
+							<td>
+								<button type="submit">Revise Enrollments</button>
+							</td>
+						</tr>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<form action="/student" th:insert="partials/goback">
+		<th:block th:replace="partials/footer :: footer"></th:block>
+	</body>
+</html>

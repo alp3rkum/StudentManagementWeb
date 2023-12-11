@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<th:block th:replace="partials/head :: head"></th:block>
+
+<body>
+	<th:block th:replace="partials/header :: header"></th:block>
+    <div class="center">
+		<p>Here you can pick a student based on their student ID.</p>
+		<form th:action="@{/studentInfo}" method="GET">
+			<table>
+				<thead>
+					<th>Student ID</th>
+					<th>Action</th>
+				</thead>
+				<tbody>
+					<th><input type="number" name="studentID" th:value="${studentID}"></th>
+					<th><button type="submit">Find Student</button></th>
+				</tbody>
+			</table>
+		</form>
+		<p>Or, here you can find the list of all students.</p>
+		<table class="list">
+			<thead>
+				<th>Student ID</th>
+				<th>Student Name</th>
+				<th>Student Surname</th>
+				<th>Student Grade Year</th>
+				<th>List Enrollments</th>
+			</thead>
+			<tbody>
+				<tr th:each="student : ${students}">
+					<td class="list-body" th:text="${student._studentID}"></td>
+					<td class="list-body" th:text="${student._firstName}"></td>
+					<td class="list-body" th:text="${student._lastName}"></td>
+					<td class="list-body" th:text="${student._gradeYear}"></td>
+					<td class="list-body"><form method="GET" th:action="@{/studentInfo/enrollments}"><input type="hidden" name="_studentID" th:value="${student._studentID}"/><button type="submit">Enrollments</button></form></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+    
+    <br>
+    <form action="/student" th:insert="partials/goback">
+    <th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<th:block th:replace="partials/head :: head"></th:block>
+<body>
+	<th:block th:replace="partials/header :: header"></th:block>
+    <div class="center">
+		<p>In this page you can add a new course to the database.</p>
+	</div>
+    
+    <br>
+	<form th:action="@{/addCourse}" th:object="${course}" method="post">
+	    <table class="list birow">
+	        <thead>
+	            <th>Add New Course</th>
+	        </thead>
+	        <tbody>
+	            <tr>
+	                <td>Course ID:</td>
+	                <td class="list-body">
+	                    <input type="number" name="_courseID" style="width: inherit;" th:value="${course._courseID}" th:field="*{_courseID}">
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Course Name:</td>
+	                <td class="list-body">
+	                    <input type="text" name="_courseName" style="width: inherit;" th:value="${course._courseName}" th:field="*{_courseName}">
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Grade Year:</td>
+	                <td class="list-body">
+	                    <input type="number" name="_gradeYear" style="width: inherit;" th:value="${course._gradeYear}" th:field="*{_gradeYear}">
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Tuition Cost:</td>
+	                <td class="list-body">
+	                    <input type="number" name="_tuitionCost" style="width: inherit;" th:value="${course._tuitionCost}" th:field="*{_tuitionCost}">
+	                </td>
+	            </tr>
+	            <input type="hidden" name="_id" value="-1" th:field="*{_id}"/>
+	            <tr>
+	                <td>
+	                    <button type="submit">Add Course</button>
+	                </td>
+	            </tr>
+	        </tbody>
+	    </table>
+	</form>
+	<br>
+	<form action="/course" th:insert="partials/goback">
+	<th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>

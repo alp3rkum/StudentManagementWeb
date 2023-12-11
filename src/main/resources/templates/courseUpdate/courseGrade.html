@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<th:block th:replace="partials/header :: header"></th:block>
+
+<body>
+	<th:block th:replace="partials/header :: header"></th:block>
+	<p>Here is the information about the particular course that you want to change its grade.</p>
+	<table class="list birow">
+		<thead>
+			<th>Course Information</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Course ID:</td><td class="list-body" th:text="${course._courseID}"></td>
+			</tr>
+			<tr>
+				<td>Course Name:</td><td class="list-body" th:text="${course._courseName}"></td>
+			</tr>				
+			<tr>
+				<td>Grade Year:</td><td class="list-body" th:text="${course._gradeYear}"></td>
+			</tr>	
+			<tr>
+				<td>Tuition Cost (₺):</td><td class="list-body" th:text="${course._tuitionCost}"></td>
+			</tr>	
+		</tbody>
+	</table>
+	<table class="list birow">
+		<tbody>
+			<tr>
+				<td>New Grade:</td>
+				<td class="list-body">
+					<form method="POST" th:action="@{/updateCourse/grade}">
+						<input type="number" name="_gradeYear" style:"width: inherit" th:value="${gradeYear}">
+						<input type="hidden" name="_courseID" th:value="${course._courseID}">
+						<button type="submit">Update Grade</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<form action="/course" th:insert="partials/goback">
+	<th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>

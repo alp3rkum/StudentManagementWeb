@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<th:block th:replace="partials/head :: head"></th:block>
+<body>
+    <div class="pageTop">
+        <h1>Fatal Error</h1>
+        <hr>
+    </div>
+    <h5>Oops, something unpleasant happened.</h5>
+    <table class="list birow">
+		<tbody>
+			<tr>
+				<td>Error Type:</td>
+				<td class="list-body" th:text="${status + ' (' + error + ')'}"></td>
+			</tr>
+			<tr>
+				<td>Error Path:</td>
+				<td class="list-body" th:text="${path}"></td>
+			</tr>
+			<tr>
+				<td>Error Time:</td>
+				<td class="list-body" th:text="${timestamp}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<form action="/" th:insert="partials/goback">
+		
+	</form>
+    <th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>

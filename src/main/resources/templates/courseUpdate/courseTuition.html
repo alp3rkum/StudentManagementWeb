@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<th:block th:replace="partials/header :: header"></th:block>
+
+<body>
+	<th:block th:replace="partials/header :: header"></th:block>
+	<p>Here is the information about the particular course that you want to update its tuition cost.</p>
+	<table class="list birow">
+		<thead>
+			<th>Course Information</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Course ID:</td><td class="list-body" th:text="${course._courseID}"></td>
+			</tr>
+			<tr>
+				<td>Course Name:</td><td class="list-body" th:text="${course._courseName}"></td>
+			</tr>
+			<tr>
+				<td>Grade Year:</td><td class="list-body" th:text="${course._gradeYear}"></td>
+			</tr>				
+			<tr>
+				<td>New Tuition Cost:</td>
+			      <td class="list-body">
+			        <form method="POST" th:action="@{/updateCourse/tuition}">
+			          <input type="number" name="_newTuition" style="width: inherit;" th:value="${newTuition}">
+			          <input type="hidden" name="_courseID" th:value="${course._courseID}">
+			          <button type="submit">Update Course Cost</button>
+			        </form>
+			      </td>
+			</tr>	
+		</tbody>
+	</table>
+	<form action="/course" th:insert="partials/goback">
+	<th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>

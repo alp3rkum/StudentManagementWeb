@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<th:block th:replace="partials/head :: head"></th:block>
+<body>
+	<th:block th:replace="partials/header :: header"></th:block>
+    <div class="center">
+		<p>In this menu, you can revise the particular course.</p>
+	</div>
+    
+    <br>
+    
+    <form method="GET">
+		<table>
+			<thead>
+				<th>Course ID</th>
+			</thead>
+			<tbody>
+				<th><input type="number" name="courseID" th:value="${courseID}"></th>
+			</tbody>
+		</table>
+		
+		<table>
+			<thead>
+				<th>Actions</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<button type="submit" formaction="/updateCourse/grade">Change Grade</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type="submit" formaction="/updateCourse/tuition">Update Tuition Cost</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type="submit" formaction="student">Go Back</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>

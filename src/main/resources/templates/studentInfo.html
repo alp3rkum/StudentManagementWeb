@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<th:block th:replace="partials/head :: head"></th:block>
+
+<body>
+	<th:block th:replace="partials/header :: header"></th:block>
+	<p>Here you can find all informations about the particular student.</p>
+	<table class="list birow">
+		<thead>
+			<th>Student Information</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Student ID:</td><td class="list-body" th:text="${student._studentID}"></td>
+			</tr>
+			<tr>
+				<td>First Name:</td><td class="list-body" th:text="${student._firstName}"></td>
+			</tr>
+			<tr>
+				<td>Last Name:</td><td class="list-body" th:text="${student._lastName}"></td>
+			</tr>				
+			<tr>
+				<td>Grade Year:</td><td class="list-body" th:text="${student._gradeYear}"></td>
+			</tr>	
+			<tr>
+				<td>Tuition Balance (₺):</td><td class="list-body" th:text="${student._tuitionBalance}"></td>
+			</tr>	
+		</tbody>
+	</table>
+	<form action="/" th:insert="partials/goback">
+	<th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>

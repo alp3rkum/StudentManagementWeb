@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<th:block th:replace="partials/head :: head"></th:block>
+	<body>
+		<th:block th:replace="partials/header :: header"></th:block>
+		<p>In this page you can end enrollments of a particular student.</p>
+		<form method="POST" th:action="@{/studentEnroll/add}" th:object="${form}">
+			<table class="list-small list-birow">
+				<thead>
+					<th>Select Student</th>
+					<th>Select Courses</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="list-body">
+							<select th:field="*{_studentID}" style="width: inherit;">
+								<option th:each="student : ${students}" th:value="${student._studentID}" th:text="${student._firstName + ' ' + student._lastName}"></option>
+							</select>
+						</td>
+						<td class="list-body">
+							<select th:field="*{_courseIDs}" style="width: inherit;" multiple>
+								<option th:each="course : ${courses}" th:value="${course._courseID}" th:text="${course._courseID + ' ' + course._courseName}"></option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Click to confirm ->
+						</td>
+						<td>
+							<input type="hidden" name="_id" value="-1" th:value="${_id}"/>
+							<button type="submit">Confirm</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<form action="/" th:insert="partials/goback">
+		<th:block th:replace="partials/footer :: footer"></th:block>
+	</body>
+</html>

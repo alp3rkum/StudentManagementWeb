@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<th:block th:replace="partials/head :: head"></th:block>
+<body>
+	<th:block th:replace="partials/header :: header"></th:block>
+    <div class="center">
+		<p>Here you can perform actions related to courses in the system.</p>
+	</div>
+    
+    <br>
+    <table>
+		<thead>
+			<th>Actions</th>
+		</thead>
+		
+		<tbody>
+			<tr><td><form action="/courseList"><button>Get/List Courses</button></form></td></tr>
+			<tr><td><form action="/addCourse"><button>Add New Courses</button></form></td></tr>
+			<tr><td><form action="/updateCourse"><button>Revise Course</button></form></td></tr>
+			<tr><td><form action="/deleteCourse"><button>Delete Course</button></form></td></tr>
+			<tr><td><form action="/"><button>Go Back</button></form></td></tr>
+		</tbody>
+	</table>
+	
+	<th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>

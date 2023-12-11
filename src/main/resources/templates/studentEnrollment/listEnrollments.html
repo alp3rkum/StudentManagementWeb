@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<th:block th:replace="partials/head :: head"></th:block>
+
+<body>
+	<th:block th:replace="partials/header :: header"></th:block>
+	<p>Here you can find all enrollments the particular student has taken.</p>
+	<table class="list birow">
+		<thead>
+			<th>Student Information</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Student ID:</td><td class="list-body" th:text="${student._studentID}"></td>
+			</tr>
+			<tr>
+				<td>First Name:</td><td class="list-body" th:text="${student._firstName}"></td>
+			</tr>
+			<tr>
+				<td>Last Name:</td><td class="list-body" th:text="${student._lastName}"></td>
+			</tr>				
+			<tr>
+				<td>Grade Year:</td><td class="list-body" th:text="${student._gradeYear}"></td>
+			</tr>
+		</tbody>
+	<table class="list birow">
+		<thead>
+			<th>Enrollment ID</th>
+			<th>Course Name</th>
+			<th>Course Grade Year</th>
+		</thead>
+		<tbody>
+			<tr th:each="enrollment : ${enrollments}">
+				<td class="list-body" th:text="${enrollment._courseID}"></td>
+				<td class="list-body" th:text="${enrollment._courseName}"></td>
+				<td class="list-body" th:text="${enrollment._gradeYear}"></td>
+			</tr>
+		</tbody>
+	</table>
+	</table>
+	<form action="/studentList" th:insert="partials/goback">
+	<th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>

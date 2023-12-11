@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<th:block th:replace="partials/head :: head"></th:block>
+
+<body>
+	<th:block th:replace="partials/header :: header"></th:block>
+    <div class="center">
+		<p>Here you can view all courses in the system.</p>
+		<table class="list">
+			<thead>
+				<th>Course ID</th>
+				<th>Course Name</th>
+				<th>Course Grade Year</th>
+				<th>Tuition Cost</th>
+			</thead>
+			<tbody>
+				<tr th:each="course : ${courses}">
+					<td class="list-body" th:text="${course._courseID}"></td>
+					<td class="list-body" th:text="${course._courseName}"></td>
+					<td class="list-body" th:text="${course._gradeYear}"></td>
+					<td class="list-body" th:text="${course._tuitionCost}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+    
+    <br>
+    <form action="/course" th:insert="partials/goback">
+    <th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>

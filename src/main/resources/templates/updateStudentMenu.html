@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<th:block th:replace="partials/head :: head"></th:block>
+<body>
+	<th:block th:replace="partials/header :: header"></th:block>
+    <div class="center">
+		<p>In this menu, you can revise student record in various ways. Includes shortcuts :)</p>
+	</div>
+    
+    <br>
+    
+    <form method="GET">
+		<table>
+			<thead>
+				<th>Student ID</th>
+			</thead>
+			<tbody>
+				<th><input type="number" name="studentID" th:value="${studentID}"></th>
+			</tbody>
+		</table>
+		
+		<table>
+			<thead>
+				<th>Actions</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<button type="submit" formaction="/updateStudent/gradeup">Grade Up</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type="submit" formaction="/updateStudent/tuition">Update Tuition</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type="submit" formaction="student">Go Back</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<th:block th:replace="partials/footer :: footer"></th:block>
+</body>
+</html>
